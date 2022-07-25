@@ -28,7 +28,7 @@ searchInput.onkeyup = function () {
   modalItems.forEach(function (el) {
     var text = el.innerText.toLowerCase();
     console.log(text);
-    if (text.indexOf(searchInput.value.toLowerCase()) > 1) {
+    if (text.indexOf(searchInput.value.toLowerCase()) > -1) {
       el.style.display = "";
     } else if (searchInput.value.toLowerCase() == "") {
       el.style.display = "";
