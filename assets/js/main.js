@@ -41,6 +41,22 @@ searchInput.onkeyup = function (e) {
   });
 };
 
-// searchInput.onkeyup = function (e) {
-//   console.log(e.target.value);
-// };
+// GOtoTop
+
+const goToTop = document.querySelector(".goToTop");
+
+const handleScrooll = () => {
+  if (window.scrollY >= 340) {
+    goToTop.style.display = "flex";
+  } else {
+    goToTop.style.display = "none";
+  }
+};
+
+goToTop.onclick = () => {
+  window.location.href = "#";
+};
+
+window.addEventListener("scroll", handleScrooll);
+
+// end GotoTop
