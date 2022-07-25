@@ -24,16 +24,23 @@ modal.onclick = function () {
 const searchInput = document.getElementById("searchInput");
 let modalItems = document.querySelectorAll(".modal__item");
 
-searchInput.onkeyup = function () {
+searchInput.onkeyup = function (e) {
   modalItems.forEach(function (el) {
     var text = el.innerText.toLowerCase();
-    console.log(text);
-    if (text.indexOf(searchInput.value.toLowerCase()) > -1) {
-      el.style.display = "";
+    if (e.keyCode === 13) {
+      if (text.indexOf(searchInput.value.toLowerCase()) > -1) {
+        el.style.display = "";
+      } else if (searchInput.value.toLowerCase() == "") {
+        el.style.display = "";
+      } else {
+        el.style.display = "none";
+      }
     } else if (searchInput.value.toLowerCase() == "") {
       el.style.display = "";
-    } else {
-      el.style.display = "none";
     }
   });
 };
+
+// searchInput.onkeyup = function (e) {
+//   console.log(e.target.value);
+// };
