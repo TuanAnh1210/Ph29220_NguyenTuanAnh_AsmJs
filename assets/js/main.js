@@ -5,6 +5,7 @@ const modalClose = document.querySelector(".modal__form-close");
 
 search.onclick = () => {
   modal.classList.add("open");
+  document.querySelector("body").style.overflow = "hidden";
 };
 
 modalContainer.onclick = (e) => {
@@ -13,32 +14,67 @@ modalContainer.onclick = (e) => {
 
 modalClose.onclick = () => {
   modal.classList.remove("open");
+  document.querySelector("body").style.overflow = "";
+
+  let NewItems = modalItems.slice(6);
+  console.log(NewItems);
+  const test = NewItems.map((item) => {
+    if (item.style.display == "flex") {
+      item.style.display = "none";
+    }
+  });
+  count = 8;
 };
 
 modal.onclick = function () {
   this.classList.remove("open");
+  document.querySelector("body").style.overflow = "";
+
+  let NewItems = modalItems.slice(6);
+  console.log(NewItems);
+  const test = NewItems.map((item) => {
+    if (item.style.display == "flex") {
+      item.style.display = "none";
+    }
+  });
+  count = 8;
 };
 
 // Search
 
-const searchInput = document.getElementById("searchInput");
-let modalItems = document.querySelectorAll(".modal__item");
-
 searchInput.onkeyup = function (e) {
-  modalItems.forEach(function (el) {
-    var text = el.innerText.toLowerCase();
+  for (let i = 0; i < modalItems.length; i++) {
+    var text = modalItems[i].innerText.toLowerCase();
     if (e.keyCode === 13) {
       if (text.indexOf(searchInput.value.toLowerCase()) > -1) {
-        el.style.display = "";
-      } else if (searchInput.value.toLowerCase() == "") {
-        el.style.display = "";
+        modalItems[i].style.display = "";
       } else {
-        el.style.display = "none";
+        modalItems[i].style.display = "none";
       }
-    } else if (searchInput.value.toLowerCase() == "") {
-      el.style.display = "";
     }
+    if (searchInput.value.toLowerCase() == "") {
+      if (i < 6) {
+        modalItems[i].style.display = "";
+      }
+
+      if (i > 6) {
+        modalItems[i].style.display = "none";
+      }
+    }
+  }
+};
+
+// Load more
+let count = 8;
+const loadMore = document.querySelector(".loadMore");
+let modalItems = Array.from(document.querySelectorAll(".modal__item"));
+
+loadMore.onclick = function () {
+  let NewItems = modalItems.slice(5, count);
+  const test = NewItems.map((item) => {
+    item.style.display = "flex";
   });
+  count += 2;
 };
 
 // GOtoTop

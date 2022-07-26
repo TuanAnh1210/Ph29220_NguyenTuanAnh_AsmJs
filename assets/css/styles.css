@@ -512,6 +512,10 @@ footer {
     font-size: 16px;
 }
 
+.modal__item.loadMore {
+    display: none;
+}
+
 @keyframes fadeIn {
     from {
         transform: translateY(100%);
