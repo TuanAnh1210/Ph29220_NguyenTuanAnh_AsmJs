@@ -17,7 +17,6 @@ modalClose.onclick = () => {
   document.querySelector("body").style.overflow = "";
 
   let NewItems = modalItems.slice(6);
-  console.log(NewItems);
   const test = NewItems.map((item) => {
     if (item.style.display == "flex") {
       item.style.display = "none";
@@ -31,7 +30,6 @@ modal.onclick = function () {
   document.querySelector("body").style.overflow = "";
 
   let NewItems = modalItems.slice(6);
-  console.log(NewItems);
   const test = NewItems.map((item) => {
     if (item.style.display == "flex") {
       item.style.display = "none";
@@ -55,10 +53,12 @@ searchInput.onkeyup = function (e) {
     if (searchInput.value.toLowerCase() == "") {
       if (i < 6) {
         modalItems[i].style.display = "";
+        count = 8;
       }
 
       if (i > 6) {
         modalItems[i].style.display = "none";
+        count = 8;
       }
     }
   }
