@@ -70,10 +70,14 @@ const loadMore = document.querySelector(".loadMore");
 let modalItems = Array.from(document.querySelectorAll(".modal__item"));
 
 loadMore.onclick = function () {
-  let NewItems = modalItems.slice(5, count);
-  const test = NewItems.map((item) => {
-    item.style.display = "flex";
-  });
+  if (count <= modalItems.length) {
+    let NewItems = modalItems.slice(5, count);
+    const test = NewItems.map((item) => {
+      item.style.display = "flex";
+    });
+  } else {
+    alert("ĐÃ LOAD HẾT THÔNG TIN...!!");
+  }
   count += 2;
 };
 
