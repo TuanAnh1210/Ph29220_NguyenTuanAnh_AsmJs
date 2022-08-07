@@ -6,6 +6,7 @@ const modalClose = document.querySelector(".modal__form-close");
 search.onclick = () => {
   modal.classList.add("open");
   document.querySelector("body").style.overflow = "hidden";
+  goToTop.style.display = "none";
 };
 
 modalContainer.onclick = (e) => {
@@ -86,7 +87,7 @@ loadMore.onclick = function () {
 const goToTop = document.querySelector(".goToTop");
 
 const handleScrooll = () => {
-  if (window.scrollY >= 340) {
+  if (window.scrollY >= 680) {
     goToTop.style.display = "flex";
   } else {
     goToTop.style.display = "none";
