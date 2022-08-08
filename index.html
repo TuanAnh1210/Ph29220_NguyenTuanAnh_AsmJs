@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="./assets/css/styles.css" />
     <link rel="stylesheet" href="./assets/css/article.css">
   </head>
-  <body>
+  <body onload="render()">
     
     <div class="main">
       <div class="goToTop">
@@ -317,24 +317,43 @@
           <h3>Create new article</h3>
           <form>
             <div class="form__group">
-              <label>Title</label>
-              <input class="input-text" type="text">
+              <div class="form__group-header">
+                <label>Title</label>
+                <p class="errror"></p>
+              </div>
+              <input id="title" class="input-text" type="text">
             </div>
             <div class="form__group">
-              <label>Image</label>
-              <input class="input-text" type="text">
+              <div class="form__group-header">
+                <label>Image</label> 
+                <p class="errror"></p>
+              
+              </div>
+              <input id="image" class="input-text" type="text">
             </div>
             <div class="form__group">
-              <label>Composer</label>
-              <input class="input-text" type="text">
+              <div class="form__group-header">
+                <label>Composer</label>
+                <p class="errror"></p>
+
+              </div>
+              <input id="composer" class="input-text" type="text">
             </div>
             <div class="form__group">
-              <label>Email</label>
-              <input class="input-text" type="text">
+              <div class="form__group-header">
+                <label>Email</label>
+                <p class="errror"></p>
+
+              </div>
+              <input id="email" class="input-text" type="text">
             </div>
             <div class="form__group">
-              <label>Description</label>
-              <textarea  class="input-text" id="" cols="30" rows="6"></textarea>
+              <div class="form__group-header">
+                <label>Description</label>
+                <p class="errror"></p>
+
+              </div>
+              <textarea  class="input-text" id="description" cols="30" rows="6"></textarea>
             </div>
 
             <div class="btn__article">

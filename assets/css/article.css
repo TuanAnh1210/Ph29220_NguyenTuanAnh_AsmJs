@@ -46,6 +46,7 @@
     margin: 16px 0;
     width: 280px;
     height: 64px;
+    word-wrap: break-word;
 }
 
 .article__item-title h2 {
@@ -59,7 +60,7 @@
     width: 280px;
     height: 140px;
     margin: 16px 0;
-
+    word-wrap: break-word;
 }
 
 .article__item-decs p {
@@ -186,6 +187,45 @@
 .article__loadmore button:hover {
     opacity: .8;
     cursor: pointer;
+}
+
+/* errror */
+.form__group-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form__group-header.red {
+    color: red;
+}
+
+.form__group.red {
+    color: red;
+}
+
+.form__group.red .errror {
+    display: inline-block;
+
+}
+
+.errror {
+    display: none;
+}
+
+.form__group input {
+    outline: none;
+}
+
+.form__group textarea {
+    outline: none;
+}
+
+.form__group.red input {
+    border: 1px solid red;
+}
+
+.form__group.red textarea {
+    border: 1px solid red;
 }
 
 @keyframes ani {
