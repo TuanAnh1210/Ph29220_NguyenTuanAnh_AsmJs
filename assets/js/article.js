@@ -90,20 +90,69 @@ const itemsArticle = [
     description:
       "that allows us to control the flow of grid items that are automatically placed ",
   },
-  //   {
-  //     title: "grid-auto-flow",
-  //     image: "./assets/imgs/modal3.png",
-  //     composer: "Tuan Anh",
-  //     description:
-  //       "that allows us to control the flow of grid items that are automatically placed when they are not explicitly positioned with any grid-placement properties.",
-  //   },
-  //   {
-  //     title: "Recreating MDN’s Truncated Text Effect",
-  //     image: "./assets/imgs/article/ar1.png",
-  //     composer: "Geoff Graham",
-  //     description:
-  //       "back in March. It’s gorgeous! And there are some sweet CSS-y gems in it that are fun to look at. One of those gems is how card components handle truncated …",
-  //   },
+  {
+    title: "grid-auto-flow",
+    image: "./assets/imgs/modal3.png",
+    composer: "Tuan Anh",
+    description:
+      "that allows us to control the flow of grid items that are automatically placed when they are not explicitly positioned with any grid-placement properties.",
+  },
+  {
+    title: "Recreating MDN’s Truncated Text Effect",
+    image: "./assets/imgs/article/ar1.png",
+    composer: "Geoff Graham",
+    description:
+      "back in March. It’s gorgeous! And there are some sweet CSS-y gems in it that are fun to look at. One of those gems is how card components handle truncated …",
+  },
+  {
+    title: "Recreating MDN’s ",
+    image: "./assets/imgs/article/ar2.png",
+    composer: "Geoff symkey",
+    description:
+      "back in March. It’s gorgeous! And there are some sweet CSS-y gems in ",
+  },
+  {
+    title: "grid-auto-flow",
+    image: "./assets/imgs/modal1.png",
+    composer: "Tuan Anh",
+    description:
+      "that allows us to control the flow of grid items that are automatically placed when they are not explicitly positioned with any grid-placement properties.",
+  },
+  {
+    title: "Recreating MDN’s ",
+    image: "./assets/imgs/article/ar2.png",
+    composer: "Geoff symkey",
+    description:
+      "back in March. It’s gorgeous! And there are some sweet CSS-y gems in ",
+  },
+  {
+    title: "Recreating MDN’s Truncated Text Effect",
+    image: "./assets/imgs/article/ar1.png",
+    composer: "Geoff Graham",
+    description:
+      "back in March. It’s gorgeous! And there are some sweet CSS-y gems in it that ",
+  },
+  {
+    title: "grid-auto-flow",
+    image: "./assets/imgs/modal1.png",
+    composer: "Tuan Anh",
+    description:
+      "that allows us to control the flow of grid items that are automatically placed when they are not explicitly positioned with any grid-placement properties.",
+  },
+  {
+    title: ":first",
+    image: "./assets/imgs/modal2.png",
+    composer: "Tuan Anh",
+    description:
+      "that allows us to control the flow of grid items that are automatically placed ",
+  },
+  {
+    title: ":first",
+    image: "./assets/imgs/modal2.png",
+    composer: "Tuan Anh",
+    description:
+      "that allows us to control the flow of grid items that are automatically placed ",
+  },
 ];
 
 const articleItemsContainer = document.querySelector(
@@ -111,39 +160,90 @@ const articleItemsContainer = document.querySelector(
 );
 
 let temp = [];
-
+let countArticle = 8;
 function render() {
   let articleRender = [...itemsArticle];
-  let articleMain = articleRender.reverse().slice(0, 8);
-  temp = articleMain.map(
-    (item) =>
-      `
-      <div class="col l-3">
-                  <div class="article__item">
-                    <div class="article__item-img">
-                      <img  src="${item.image}" alt="">
-                    </div>
-    
-                   <div class="article__item-text">
-                     <div class="article__item-title"> 
-                      <h2 >${item.title}</h2>
-                    </div>
-  
-                     <div class="article__item-decs"> 
-                      <p>${item.description}</p>
-                    </div>
-      
-                      <div class="article__item-author">
-                        <img src="./assets/imgs/author2.jpg" alt="">
-                        <p><strong>${item.composer}</strong> on Jul 28, 2022</p>
+  if (countArticle <= articleRender.length) {
+    let articleMain = articleRender.reverse().slice(0, countArticle);
+    temp = articleMain.map(
+      (item) =>
+        `
+        <div class="aniShow col l-3">
+                    <div class="article__item">
+                      <div class="article__item-img">
+                        <img  src="${item.image}" alt="">
                       </div>
-                   </div>
+      
+                     <div class="article__item-text">
+                       <div class="article__item-title"> 
+                        <h2 >${item.title}</h2>
+                      </div>
+    
+                       <div class="article__item-decs"> 
+                        <p>${item.description}</p>
+                      </div>
+        
+                        <div class="article__item-author">
+                          <img src="./assets/imgs/author2.jpg" alt="">
+                          <p><strong>${item.composer}</strong> on Jul 28, 2022</p>
+                        </div>
+                     </div>
+                    </div>
                   </div>
-                </div>
-      `
-  );
+        `
+    );
+  } else {
+    let articleMain = articleRender.reverse().slice(0, articleRender.length);
+    temp = articleMain.map(
+      (item) =>
+        `
+        <div class="aniShow col l-3">
+                    <div class="article__item">
+                      <div class="article__item-img">
+                        <img  src="${item.image}" alt="">
+                      </div>
+      
+                     <div class="article__item-text">
+                       <div class="article__item-title"> 
+                        <h2 >${item.title}</h2>
+                      </div>
+    
+                       <div class="article__item-decs"> 
+                        <p>${item.description}</p>
+                      </div>
+        
+                        <div class="article__item-author">
+                          <img src="./assets/imgs/author2.jpg" alt="">
+                          <p><strong>${item.composer}</strong> on Jul 28, 2022</p>
+                        </div>
+                     </div>
+                    </div>
+                  </div>
+        `
+    );
+  }
   articleItemsContainer.innerHTML = temp.join("");
 }
+
+// Load more article
+const articleLoadmoreBtn = document.querySelector(".article__loadmore-btn");
+articleLoadmoreBtn.onclick = () => {
+  countArticle += 4;
+
+  // Hiện ẩn bớt
+  if (countArticle > 8) {
+    articleRemoveBtn.style.display = "block";
+  }
+  render();
+};
+
+// Ẩn bớt
+const articleRemoveBtn = document.querySelector(".article__remove-btn");
+articleRemoveBtn.onclick = function () {
+  countArticle = 8;
+  this.style.display = "none";
+  render();
+};
 
 // get form submit
 
@@ -159,15 +259,20 @@ const formField = ["title", "image", "composer", "email", "description"];
 btnArticleAdd.onclick = function (e) {
   e.preventDefault();
 
-  let articleData = {};
-  validate(articleData);
-  if (Object.keys(articleData).length != 0) {
+  let articleData = {
+    composer: "",
+    description: "",
+    email: "",
+    image: "",
+    title: "",
+  };
+
+  if (validate(articleData)) {
     itemsArticle.push(articleData);
     render();
 
     clearInput();
   }
-  console.log(itemsArticle);
 };
 
 // clear input
@@ -187,12 +292,22 @@ function validate(articleData) {
   for (let field of formField) {
     let element = document.getElementById(field);
     const regEmail = /^\w+@(\w+\.\w+){1,2}$/;
-
+    const regImg =
+      /^https?:\/\/(.+\/)+.+(\.(gif|png|jpg|jpeg|webp|svg|psd|bmp|tif))$/;
     if (field == "title") {
       if (element.value.trim().length < 10) {
         element.parentElement.classList.add("red");
         element.parentElement.querySelector(".errror").innerText =
           "Title phải lớn hơn 10 kí tự";
+        isError = false;
+      }
+    }
+
+    if (field == "image") {
+      if (regImg.test(element.value.trim()) == false) {
+        element.parentElement.classList.add("red");
+        element.parentElement.querySelector(".errror").innerText =
+          "Đường dẫn ảnh không hợp lệ";
         isError = false;
       }
     }
@@ -211,6 +326,7 @@ function validate(articleData) {
         element.parentElement.classList.add("red");
         element.parentElement.querySelector(".errror").innerText =
           "Description phải lớn hơn 20 kí tự";
+        console.log("lan chay tiep theo");
         isError = false;
       }
     }
@@ -231,5 +347,11 @@ function validate(articleData) {
     if (isError) {
       articleData[field] = element.value;
     }
+  }
+
+  if (Object.values(articleData).includes("")) {
+    return false;
+  } else {
+    return true;
   }
 }

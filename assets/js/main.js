@@ -5,6 +5,7 @@ const modalClose = document.querySelector(".modal__form-close");
 
 search.onclick = () => {
   modal.classList.add("open");
+  searchInput.focus();
   document.querySelector("body").style.overflow = "hidden";
   goToTop.style.display = "none";
 };
@@ -44,12 +45,11 @@ modal.onclick = function () {
 searchInput.onkeyup = function (e) {
   for (let i = 0; i < modalItems.length; i++) {
     var text = modalItems[i].innerText.toLowerCase();
-    if (e.keyCode === 13) {
-      if (text.indexOf(searchInput.value.toLowerCase()) > -1) {
-        modalItems[i].style.display = "";
-      } else {
-        modalItems[i].style.display = "none";
-      }
+
+    if (text.indexOf(searchInput.value.toLowerCase()) > -1) {
+      modalItems[i].style.display = "";
+    } else {
+      modalItems[i].style.display = "none";
     }
     if (searchInput.value.toLowerCase() == "") {
       if (i < 6) {

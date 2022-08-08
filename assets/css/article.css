@@ -47,6 +47,8 @@
     width: 280px;
     height: 64px;
     word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .article__item-title h2 {
@@ -61,6 +63,8 @@
     height: 140px;
     margin: 16px 0;
     word-wrap: break-word;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .article__item-decs p {
@@ -72,7 +76,8 @@
 
 .article__item-author {
     padding: 4px 10px 14px 10px;
-
+    overflow: hidden;
+    text-overflow: ellipsis;
     display: flex;
     align-items: center;
 }
@@ -85,7 +90,11 @@
 }
 
 .article__item-author p {
-
+    display: block;
+    width: 152px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 16px;
     font-size: 13px;
     margin-left: 10px;
 }
@@ -175,8 +184,7 @@
 }
 
 .article__loadmore button {
-    font-size: 18px;
-    padding: 12px 58px;
+
     border-radius: 4px;
     border: none;
     background-color: #111;
@@ -226,6 +234,26 @@
 
 .form__group.red textarea {
     border: 1px solid red;
+}
+
+.aniShow {
+    animation: ani linear .6s;
+    transition: all linear .6s;
+}
+
+.article__loadmore-btn a {
+    display: block;
+    font-size: 18px;
+    padding: 12px 58px;
+    color: #fff;
+}
+
+.article__remove-btn {
+    font-size: 18px;
+    padding: 12px 58px;
+    color: #fff;
+    margin-left: 20px !important;
+    display: none;
 }
 
 @keyframes ani {
