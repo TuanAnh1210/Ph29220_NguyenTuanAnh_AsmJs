@@ -1,5 +1,3 @@
-// import { itemsArticle } from "./itemsArticle.js";
-
 // show hide create - article
 
 const modalArticle = document.querySelector(".modal__article-wrapper");
@@ -33,127 +31,111 @@ modalArticle.onclick = () => {
 };
 
 //
-const itemsArticle = [
-  {
-    title: "Recreating MDN’s Truncated Text Effect",
-    image: "./assets/imgs/article/ar1.png",
-    composer: "Geoff Graham",
-    description:
-      "back in March. It’s gorgeous! And there are some sweet CSS-y gems in it that are fun to look at. One of those",
-  },
-  {
-    title: "Recreating MDN’s ",
-    image: "./assets/imgs/article/ar2.png",
-    composer: "Geoff symkey",
-    description:
-      "back in March. It’s gorgeous! And there are some sweet CSS-y gems in ",
-  },
-  {
-    title: "grid-auto-flow",
-    image: "./assets/imgs/modal1.png",
-    composer: "Tuan Anh",
-    description:
-      "that allows us to control the flow of grid items that are automatically placed when they are not explicitly positioned with any grid-placement properties.",
-  },
-  {
-    title: "Recreating MDN’s ",
-    image: "./assets/imgs/article/ar2.png",
-    composer: "Geoff symkey",
-    description:
-      "back in March. It’s gorgeous! And there are some sweet CSS-y gems in ",
-  },
-  {
-    title: "Recreating MDN’s Truncated Text Effect",
-    image: "./assets/imgs/article/ar1.png",
-    composer: "Geoff Graham",
-    description:
-      "back in March. It’s gorgeous! And there are some sweet CSS-y gems in it that ",
-  },
-  {
-    title: "grid-auto-flow",
-    image: "./assets/imgs/modal1.png",
-    composer: "Tuan Anh",
-    description:
-      "that allows us to control the flow of grid items that are automatically placed when they are not explicitly positioned with any grid-placement properties.",
-  },
-  {
-    title: ":first",
-    image: "./assets/imgs/modal2.png",
-    composer: "Tuan Anh",
-    description:
-      "that allows us to control the flow of grid items that are automatically placed ",
-  },
-  {
-    title: ":first",
-    image: "./assets/imgs/modal2.png",
-    composer: "Tuan Anh",
-    description:
-      "that allows us to control the flow of grid items that are automatically placed ",
-  },
-  {
-    title: "grid-auto-flow",
-    image: "./assets/imgs/modal3.png",
-    composer: "Tuan Anh",
-    description:
-      "that allows us to control the flow of grid items that are automatically placed when they are not explicitly positioned with any grid-placement properties.",
-  },
-  {
-    title: "Recreating MDN’s Truncated Text Effect",
-    image: "./assets/imgs/article/ar1.png",
-    composer: "Geoff Graham",
-    description:
-      "back in March. It’s gorgeous! And there are some sweet CSS-y gems in it that are fun to look at. One of those gems is how card components handle truncated …",
-  },
-  {
-    title: "Recreating MDN’s ",
-    image: "./assets/imgs/article/ar2.png",
-    composer: "Geoff symkey",
-    description:
-      "back in March. It’s gorgeous! And there are some sweet CSS-y gems in ",
-  },
-  {
-    title: "grid-auto-flow",
-    image: "./assets/imgs/modal1.png",
-    composer: "Tuan Anh",
-    description:
-      "that allows us to control the flow of grid items that are automatically placed when they are not explicitly positioned with any grid-placement properties.",
-  },
-  {
-    title: "Recreating MDN’s ",
-    image: "./assets/imgs/article/ar2.png",
-    composer: "Geoff symkey",
-    description:
-      "back in March. It’s gorgeous! And there are some sweet CSS-y gems in ",
-  },
-  {
-    title: "Recreating MDN’s Truncated Text Effect",
-    image: "./assets/imgs/article/ar1.png",
-    composer: "Geoff Graham",
-    description:
-      "back in March. It’s gorgeous! And there are some sweet CSS-y gems in it that ",
-  },
-  {
-    title: "grid-auto-flow",
-    image: "./assets/imgs/modal1.png",
-    composer: "Tuan Anh",
-    description:
-      "that allows us to control the flow of grid items that are automatically placed when they are not explicitly positioned with any grid-placement properties.",
-  },
-  {
-    title: ":first",
-    image: "./assets/imgs/modal2.png",
-    composer: "Tuan Anh",
-    description:
-      "that allows us to control the flow of grid items that are automatically placed ",
-  },
-  {
-    title: ":first",
-    image: "./assets/imgs/modal2.png",
-    composer: "Tuan Anh",
-    description:
-      "that allows us to control the flow of grid items that are automatically placed ",
-  },
-];
+const itemsArticle = JSON.parse(localStorage.getItem("article__storage"))
+  ? JSON.parse(localStorage.getItem("article__storage"))
+  : [
+      {
+        title: "Recreating MDN’s Truncated Text Effect",
+        image: "./assets/imgs/article/ar1.png",
+        composer: "Geoff Graham",
+        description:
+          "back in March. It’s gorgeous! And there are some sweet CSS-y gems in it that are fun to look at. One of those",
+      },
+      {
+        title: "Recreating MDN’s ",
+        image: "./assets/imgs/article/ar2.png",
+        composer: "Geoff symkey",
+        description:
+          "back in March. It’s gorgeous! And there are some sweet CSS-y gems in ",
+      },
+      {
+        title: "grid-auto-flow",
+        image: "./assets/imgs/modal1.png",
+        composer: "Tuan Anh",
+        description:
+          "that allows us to control the flow of grid items that are automatically placed when they are not explicitly positioned with any grid-placement properties.",
+      },
+      {
+        title: "Recreating MDN’s ",
+        image: "./assets/imgs/article/ar2.png",
+        composer: "Geoff symkey",
+        description:
+          "back in March. It’s gorgeous! And there are some sweet CSS-y gems in ",
+      },
+      {
+        title: "Recreating MDN’s Truncated Text Effect",
+        image: "./assets/imgs/article/ar1.png",
+        composer: "Geoff Graham",
+        description:
+          "back in March. It’s gorgeous! And there are some sweet CSS-y gems in it that ",
+      },
+      {
+        title: "grid-auto-flow",
+        image: "./assets/imgs/modal1.png",
+        composer: "Tuan Anh",
+        description:
+          "that allows us to control the flow of grid items that are automatically placed when they are not explicitly positioned with any grid-placement properties.",
+      },
+      {
+        title: ":first",
+        image: "./assets/imgs/modal2.png",
+        composer: "Tuan Anh",
+        description:
+          "that allows us to control the flow of grid items that are automatically placed ",
+      },
+      {
+        title: ":first",
+        image: "./assets/imgs/modal2.png",
+        composer: "Tuan Anh",
+        description:
+          "that allows us to control the flow of grid items that are automatically placed ",
+      },
+      {
+        title: "grid-auto-flow",
+        image: "./assets/imgs/modal3.png",
+        composer: "Tuan Anh",
+        description:
+          "that allows us to control the flow of grid items that are automatically placed when they are not explicitly positioned with any grid-placement properties.",
+      },
+
+      {
+        title: "Recreating MDN’s ",
+        image: "./assets/imgs/article/ar2.png",
+        composer: "Geoff symkey",
+        description:
+          "back in March. It’s gorgeous! And there are some sweet CSS-y gems in ",
+      },
+
+      {
+        title: "grid-auto-flow",
+        image: "./assets/imgs/modal1.png",
+        composer: "Tuan Anh",
+        description:
+          "that allows us to control the flow of grid items that are automatically placed when they are not explicitly positioned with any grid-placement properties.",
+      },
+      {
+        title: ":first",
+        image: "./assets/imgs/modal2.png",
+        composer: "Tuan Anh",
+        description:
+          "that allows us to control the flow of grid items that are automatically placed ",
+      },
+      {
+        title: ":first",
+        image: "./assets/imgs/modal2.png",
+        composer: "Tuan Anh",
+        description:
+          "that allows us to control the flow of grid items that are automatically placed ",
+      },
+    ];
+
+// let jsonJobs = JSON.stringify(itemsArticle);
+
+// localStorage.setItem("article__storage", jsonJobs);
+// console.log(localStorage);
+
+// let itemsArticleStorage = localStorage.getItem("article__storage");
+// console.log(JSON.parse(localStorage.getItem("article__storage")));
 
 const articleItemsContainer = document.querySelector(
   ".article__items-container"
@@ -161,8 +143,12 @@ const articleItemsContainer = document.querySelector(
 
 let temp = [];
 let countArticle = 8;
+// let articleRender = [];
+// let testgetStorage = JSON.parse(localStorage.getItem("article__storage"));
 function render() {
-  let articleRender = [...itemsArticle];
+  let articleRender = JSON.parse(localStorage.getItem("article__storage"))
+    ? JSON.parse(localStorage.getItem("article__storage"))
+    : itemsArticle;
   if (countArticle <= articleRender.length) {
     let articleMain = articleRender.reverse().slice(0, countArticle);
     temp = articleMain.map(
@@ -269,6 +255,8 @@ btnArticleAdd.onclick = function (e) {
 
   if (validate(articleData)) {
     itemsArticle.push(articleData);
+    localStorage.setItem("article__storage", JSON.stringify(itemsArticle));
+    console.log(localStorage);
     render();
 
     clearInput();
