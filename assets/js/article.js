@@ -154,7 +154,11 @@ function render() {
     temp = articleMain.map(
       (item) =>
         `
-        <div class="aniShow col l-3">
+        <div class="aniShow col l-3"
+        data-aos="flip-left"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="2000"
+        >
                     <div class="article__item">
                       <div class="article__item-img">
                         <img  src="${item.image}" alt="">
@@ -183,7 +187,11 @@ function render() {
     temp = articleMain.map(
       (item) =>
         `
-        <div class="aniShow col l-3">
+        <div class="aniShow col l-3"
+            data-aos="flip-left"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="2000"
+        >
                     <div class="article__item">
                       <div class="article__item-img">
                         <img  src="${item.image}" alt="">
