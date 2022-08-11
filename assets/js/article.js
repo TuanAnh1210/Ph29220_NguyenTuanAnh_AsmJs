@@ -4,6 +4,7 @@ const modalArticle = document.querySelector(".modal__article-wrapper");
 const btnCreate = document.querySelector(".btn__create");
 const btnArticleClose = document.querySelector(".btn__article-close");
 const modal__article = document.querySelector(".modal__article");
+const message__delete = document.querySelector(".message__delete");
 
 btnCreate.onclick = () => {
   modalArticle.classList.add("open");
@@ -152,12 +153,9 @@ function render() {
   if (countArticle <= articleRender.length) {
     let articleMain = articleRender.reverse().slice(0, countArticle);
     temp = articleMain.map(
-      (item) =>
+      (item, index) =>
         `
-        <div class="aniShow col l-3"
-        data-aos="flip-left"
-        data-aos-easing="ease-out-cubic"
-        data-aos-duration="2000"
+        <div class=" col l-3"        
         >
                     <div class="article__item">
                       <div class="article__item-img">
@@ -177,20 +175,20 @@ function render() {
                           <img src="./assets/imgs/author2.jpg" alt="">
                           <p><strong>${item.composer}</strong> on Jul 28, 2022</p>
                         </div>
-                     </div>
-                    </div>
+                         <button class='btn__article-dlt' onclick='deleteAR(${index})'>Delete</button>
+                         <button class='btn__article-update' onclick='updateAR(${index})'>Update</button>
+                        </div>
+                        </div>
                   </div>
         `
     );
   } else {
     let articleMain = articleRender.reverse().slice(0, articleRender.length);
     temp = articleMain.map(
-      (item) =>
+      (item, index) =>
         `
-        <div class="aniShow col l-3"
-            data-aos="flip-left"
-            data-aos-easing="ease-out-cubic"
-            data-aos-duration="2000"
+        <div class=" col l-3"
+            
         >
                     <div class="article__item">
                       <div class="article__item-img">
@@ -210,6 +208,9 @@ function render() {
                           <img src="./assets/imgs/author2.jpg" alt="">
                           <p><strong>${item.composer}</strong> on Jul 28, 2022</p>
                         </div>
+                        <button class='btn__article-dlt' onclick='deleteAR(${index})'>Delete</button>
+                        <button class='btn__article-update' onclick='updateAR(${index})'>Update</button>
+                        
                      </div>
                     </div>
                   </div>
@@ -351,3 +352,35 @@ function validate(articleData) {
     return true;
   }
 }
+
+// handle delete
+
+const yes = document.querySelector(".yes");
+const no = document.querySelector(".no");
+function deleteAR(index) {
+  let i = index;
+  message__delete.classList.add("open");
+
+  yes.onclick = function () {
+    let testDeleteStorage = JSON.parse(localStorage.getItem("article__storage"))
+      ? JSON.parse(localStorage.getItem("article__storage"))
+      : itemsArticle;
+
+    testDeleteStorage.reverse().splice(i, 1);
+
+    localStorage.setItem(
+      "article__storage",
+      JSON.stringify(testDeleteStorage.reverse())
+    );
+
+    message__delete.classList.remove("open");
+
+    render();
+  };
+
+  no.onclick = function () {
+    message__delete.classList.remove("open");
+  };
+}
+
+function updateAR(index) {}
