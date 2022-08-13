@@ -36,6 +36,7 @@
         <button class="no">NO</button>
       </div>
     </div>
+
       <header>
         <div class="grid wide">
           <div class="header-container">
@@ -64,6 +65,7 @@
           </div>
         </div>
       </header>
+
       <div data-aos-duration="2000" data-aos="fade-down" class="title">
         <div class="grid wide">
           <div class="title-container">
@@ -373,13 +375,7 @@
           </form>
         </div>
       </div>
-    </div>
-
-   <div class="modal__article--update-wrapper">
-      <div class="modal__article--update-form">
-        
-      </div>
-   </div>
+    </div>  
 
     <div class="modal">
       <div class="modal__container">
@@ -704,5 +700,22 @@
       <script>
         AOS.init();    
     </script>
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.9.0/jquery.mark.min.js" integrity="sha256-jcYvou95wtQNBJhqUWTA7Xv+A9ZPumT5e9nwTEmCzJs=" crossorigin="anonymous"></script>
+<script>
+  let test__text = document.querySelector('#searchInput')
+  var test__text_heightlight = ''
+  test__text.oninput = function(e) {
+    test__text_heightlight = e.target.value
+    
+    runheightLight(e.target.value)
+  }
+
+  function runheightLight(text__test) {
+    console.log(text__test)
+
+    $('.modal__lists').mark(`${text__test}`);
+  }
+</script> -->
   </body>
 </html>

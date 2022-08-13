@@ -32,7 +32,7 @@ modalArticle.onclick = () => {
 };
 
 //
-const itemsArticle = JSON.parse(localStorage.getItem("article__storage"))
+let itemsArticle = JSON.parse(localStorage.getItem("article__storage"))
   ? JSON.parse(localStorage.getItem("article__storage"))
   : [
       {
@@ -176,7 +176,7 @@ function render() {
                           <p><strong>${item.composer}</strong> on Jul 28, 2022</p>
                         </div>
                          <button class='btn__article-dlt' onclick='deleteAR(${index})'>Delete</button>
-                         <button class='btn__article-update' onclick='updateAR(${index})'>Update</button>
+                        
                         </div>
                         </div>
                   </div>
@@ -209,7 +209,7 @@ function render() {
                           <p><strong>${item.composer}</strong> on Jul 28, 2022</p>
                         </div>
                         <button class='btn__article-dlt' onclick='deleteAR(${index})'>Delete</button>
-                        <button class='btn__article-update' onclick='updateAR(${index})'>Update</button>
+                        
                         
                      </div>
                     </div>
@@ -263,7 +263,11 @@ btnArticleAdd.onclick = function (e) {
   };
 
   if (validate(articleData)) {
+    console.log(itemsArticle);
+
     itemsArticle.push(articleData);
+    console.log(itemsArticle);
+
     localStorage.setItem("article__storage", JSON.stringify(itemsArticle));
     console.log(localStorage);
     render();
@@ -362,11 +366,13 @@ function deleteAR(index) {
   message__delete.classList.add("open");
 
   yes.onclick = function () {
+    console.log(i);
     let testDeleteStorage = JSON.parse(localStorage.getItem("article__storage"))
       ? JSON.parse(localStorage.getItem("article__storage"))
       : itemsArticle;
 
     testDeleteStorage.reverse().splice(i, 1);
+    itemsArticle.reverse().splice(i, 1);
 
     localStorage.setItem(
       "article__storage",
@@ -382,5 +388,3 @@ function deleteAR(index) {
     message__delete.classList.remove("open");
   };
 }
-
-function updateAR(index) {}
