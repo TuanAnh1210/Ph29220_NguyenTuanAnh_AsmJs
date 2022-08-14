@@ -292,6 +292,7 @@ function validate(articleData) {
   let isError = true;
   for (let field of formField) {
     let element = document.getElementById(field);
+    console.log(element);
     const regEmail = /^\w+@(\w+\.\w+){1,2}$/;
     const regImg =
       /^https?:\/\/(.+\/)+.+(\.(gif|png|jpg|jpeg|webp|svg|psd|bmp|tif))$/;

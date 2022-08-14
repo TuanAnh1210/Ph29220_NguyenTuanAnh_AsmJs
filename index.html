@@ -405,7 +405,7 @@
                 </li>
                 <li class="modal__item">
                   <a href="https://github.com/TuanAnh1210" class="modal__link">
-                    <h3 class="searchText">Resilient, Declarative, Contextual</h3>
+                    <h3 class="searchText">Resilient Declarative Contextual</h3>
                     <p>resilient-declarative-contextual</p>
                   </a>
                   <img
@@ -416,8 +416,8 @@
                 </li>
                 <li class="modal__item">
                   <a href="https://github.com/TuanAnh1210" class="modal__link">
-                    <h3 class="searchText">Fast, Good, Local Site Search with Jetpack</h3>
-                    <p>Fast, Good, Local Site Search with Jetpack</p>
+                    <h3 class="searchText">Fast Good Local Site Search with Jetpack</h3>
+                    <p>Fast Good Local Site Search with Jetpack</p>
                   </a>
                   <img
                     class="modal__img"
@@ -701,21 +701,36 @@
         AOS.init();    
     </script>
 
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.9.0/jquery.mark.min.js" integrity="sha256-jcYvou95wtQNBJhqUWTA7Xv+A9ZPumT5e9nwTEmCzJs=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.9.0/jquery.mark.min.js" integrity="sha256-jcYvou95wtQNBJhqUWTA7Xv+A9ZPumT5e9nwTEmCzJs=" crossorigin="anonymous"></script>
 <script>
   let test__text = document.querySelector('#searchInput')
-  var test__text_heightlight = ''
-  test__text.oninput = function(e) {
-    test__text_heightlight = e.target.value
-    
-    runheightLight(e.target.value)
-  }
+  
+  // test__text.oninput = (e) => {
+  //     text__mark = e.target.value
+  //     console.log(text__mark)
+  //     testabc.mark('res')
+  //   }
 
-  function runheightLight(text__test) {
-    console.log(text__test)
+    test__text.oninput  = function(e) {       
+      $('.modal__lists').unmark({
+        done: function() {
+          $('.modal__lists').mark(e.target.value, {
+            separateWordSearch: true,
+          })
+        }
+      })
+    }
 
-    $('.modal__lists').mark(`${text__test}`);
-  }
-</script> -->
+  
+
+
+  
+  
+  
+
+ 
+
+
+</script>
   </body>
 </html>
