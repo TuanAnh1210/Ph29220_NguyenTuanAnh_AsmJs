@@ -144,14 +144,13 @@ const articleItemsContainer = document.querySelector(
 
 let temp = [];
 let countArticle = 8;
-// let articleRender = [];
-// let testgetStorage = JSON.parse(localStorage.getItem("article__storage"));
+
 function render() {
   let articleRender = JSON.parse(localStorage.getItem("article__storage"))
     ? JSON.parse(localStorage.getItem("article__storage"))
     : itemsArticle;
   if (countArticle <= articleRender.length) {
-    let articleMain = articleRender.reverse().slice(0, countArticle);
+    let articleMain = articleRender.slice(0, countArticle);
     temp = articleMain.map(
       (item, index) =>
         `
@@ -183,7 +182,7 @@ function render() {
         `
     );
   } else {
-    let articleMain = articleRender.reverse().slice(0, articleRender.length);
+    let articleMain = articleRender.slice(0, articleRender.length);
     temp = articleMain.map(
       (item, index) =>
         `
@@ -263,13 +262,9 @@ btnArticleAdd.onclick = function (e) {
   };
 
   if (validate(articleData)) {
-    console.log(itemsArticle);
-
-    itemsArticle.push(articleData);
-    console.log(itemsArticle);
+    itemsArticle.unshift(articleData);
 
     localStorage.setItem("article__storage", JSON.stringify(itemsArticle));
-    console.log(localStorage);
     render();
 
     clearInput();

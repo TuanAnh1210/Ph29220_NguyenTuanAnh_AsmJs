@@ -44,7 +44,39 @@ header {
     height: var(--height-primary);
 }
 
+.highlight {
+    background-color: orangered;
+    color: #fff;
+}
 
+.itemDate {
+    font-size: 14px !important;
+    color: orange !important;
+    font-style: italic;
+}
+
+.modal_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 928px;
+    color: white;
+    padding: 0 46px;
+    margin: 26px 0;
+}
+
+.filter_option {
+    margin-left: 8px;
+}
+
+.filter_option:hover {
+    cursor: pointer;
+    color: orangered;
+}
+
+.filter_option.active {
+    color: orangered;
+}
 
 .header__nav-lists {
     display: flex;
